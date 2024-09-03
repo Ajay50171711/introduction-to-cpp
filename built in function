@@ -1,1 +1,207 @@
+Useful Inbuilt Functions in C++
+
+In-built functions in C++ are those functions that are part of C++ standard libraries. The purpose of inbuilt functions is to provide common and essential functionality that is frequently required in the programming.
+we will look at some of the commonly used inbuilt functions in C++
+
+
+
+
+1. sqrt() Function
+-----------------------
+The sqrt() function is used to determine the square root of the value of type double. It is defined inside <cmath> header file
+
+// C++ program to illustrate the sqrt() function 
+#include <cmath> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	double x = 24; 
+	double answer; 
+
+	answer = sqrt(x); 
+
+	cout << answer << endl; 
+
+	return 0; 
+}
+
+
+
+
+
+2. pow() Function
+---------------------
+The pow() function is used to find the value of the given number raised to some power. This function is also defined inside <cmath> header file
+
+// C++ program to illustrate the pow() function 
+#include <cmath> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+	int base = 3; 
+	int exponent = 2; 
+
+	int answer = pow(base, exponent); 
+
+	cout << answer << endl; 
+}
+
+
+
+
+3. sort() Function
+----------------------------------
+#include <iostream> 
+#include <algorithm> 
+
+using namespace std; 
+
+int main() 
+{ 
+	int arr[] = { 4, 6, 2 , 8, 7 , 1 , 3}; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	
+		sort(arr, arr + n); 
+
+	for (int i = 0; i < n; ++i) 
+		cout << arr[i] << " "; 
+
+	return 0; 
+} 
+
+
+
+
+4. max() Function
+------------------------------
+
+// C++ program to illustrate the max() function 
+#include <algorithm> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	cout << max(7, 6); 
+
+	return 0; 
+}
+
+
+5. min() function
+------------------------------------------------
+
+// C++ program to illustrate the min() function 
+#include <algorithm> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	cout << min(3, 4); 
+
+	return 0; 
+}
+
+
+6. swap() Function
+-----------------------------------------------------
+// C++ program to illustrate the swap() function 
+#include <algorithm> 
+#include <iostream> 
+
+using namespace std; 
+
+int main() 
+{ 
+	int a = 3, b = 4; 
+	cout << "Before swap: " << endl; 
+	cout << "a: " << a << " b: " << b; 
+	cout << endl; 
+
+	// using swap 
+	swap(a, b); 
+
+	cout << "After swap: " << endl; 
+	cout << "a: " << a << " b: " << b; 
+
+	return 0; 
+}
+
+7.tolower() Function
+---------------------------------------
+
+// C++ program to illustrate the use of tolower() 
+#include <cctype> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	string str = "GFG"; 
+
+	// using tolower() for each character 
+	for (auto& a : str) { 
+		a = tolower(a); 
+	} 
+
+	cout << str; 
+	return 0; 
+}
+
+
+8. toupper() Function
+--------------------------------
+
+// C++ program to illustrate the use of toupper() 
+#include <cctype> 
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+
+	string str = "geeksforgeeks"; 
+
+	// using toupper() for each character 
+	for (auto& a : str) { 
+		a = toupper(a); 
+	} 
+
+	cout << str; 
+	return 0; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
