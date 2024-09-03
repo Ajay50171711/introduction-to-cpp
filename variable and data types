@@ -14,5 +14,67 @@ int b = 20;
 int sum = a + b; // 'sum' now holds the value 30
 
 -----------------------------------------------------------------------------------data type----------------------------------------------------
+Fundamental Data Types
+---------------------------
+
+1)Integer Types:
+
+int: Represents integer values. Size depends on the system but is commonly 4 bytes.
+short: Represents smaller integers. Typically 2 bytes.
+long: Represents larger integers. Typically 4 or 8 bytes, depending on the system.
+long long: Represents very large integers. At least 8 bytes
+
+
+2)Floating-Point Types:
+
+float: Represents single-precision floating-point numbers. Typically 4 bytes.
+double: Represents double-precision floating-point numbers. Typically 8 bytes.
+long double: Represents extended precision floating-point numbers. Size and precision depend on the system but is often at least 8 bytes.
+
+
+3)Character Types:
+
+char: Represents a single character. Typically 1 byte.
+
+
+4)Boolean Type:
+
+bool: Represents boolean values true or false. Typically 1 byte.
+
+
+Derived Data Types
+------------------------------------------
+Arrays:
+Collections of elements of the same type. E.g., int arr[10];
+
+Pointers:
+Variables that store the memory address of another variable. E.g., int* ptr;
+
+Functions:
+Functions themselves can be treated as types. E.g., int (*func)(int, int);
+
+
+User-Defined Data Types
+--------------------------------
+1)struct
+2)union
+3)class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
