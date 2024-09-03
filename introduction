@@ -1,1 +1,64 @@
+C++ Programming Language
+
+Birth of C++
+
+Initial Development:
+Developer: Bjarne Stroustrup
+Introduced: Early 1980s
+Originally Named: “C with Classes”
+Purpose: To add object-oriented features to C while retaining its efficiency and flexibility.
+
+First Release:
+Name Change: In 1983, "C with Classes" was officially renamed to "C++" to signify that it was an enhancement of C.
+Version: The first commercial implementation was released in 1985.
+
+-------------------------------------------------first program in c++----------------------------------------------------------
+
+let’s start with a basic C++ program and walk through its components.
+Here's a simple "Hello, World!" program in C++:
+-------------------------------------------------
+#include <iostream> 
+int main() {
+    std::cout << "Hello, World!" << std::endl; 
+    return 0; 
+}
+---------------------------------------------------
+
+
+#include <iostream>
+using namespace std;
+int main() { 
+    cout << "Hello, World!" << endl; 
+    return 0; 
+}
+----------------------------------------------------------------------------------------------------------------------
+
+1) #include <iostream>:
+This is a preprocessor directive that tells the compiler to include the standard input-output stream library. The iostream library provides functionalities for input and output operations in C++.
+
+2)int main():
+This is the main function where the execution of the program begins. The int indicates that the function will return an integer value. By convention, a return value of 0 typically signifies that the program completed successfully.
+
+3) { ... }:
+Curly braces {} are used to define the scope of the main function. All the code inside these braces is executed when the program runs.
+
+4) std::cout << "Hello, World!" << std::endl;:
+std::cout is an object used to handle output to the console. The << operator is used to send data to the output stream.
+"Hello, World!" is a string literal that we want to print to the console.
+
+std::endl is an I/O manipulator that inserts a newline character into the output stream and flushes the buffer.
+
+5) return 0;:
+This statement ends the main function and returns a value of 0 to the operating system. It signifies that the program has executed successfully
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
