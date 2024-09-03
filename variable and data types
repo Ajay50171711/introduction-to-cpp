@@ -1,0 +1,14 @@
+In C++, variables and data types are fundamental concepts that are crucial for programming. Understanding them is key to writing effective and efficient code.
+
+To use a variable, you first need to declare it. The declaration tells the compiler what kind of data the variable will hold. The general syntax is:
+data_type variable_name;
+
+int age; // Declares a variable named 'age' of type 'int'
+
+int age = 25; // Declares and initializes 'age' with the value 25
+
+
+After declaring and initializing a variable, you can use it to store data, perform operations, and retrieve values. For example:
+int a = 10;
+int b = 20;
+int sum = a + b; // 'sum' now holds the value 30
