@@ -12,3 +12,7 @@ After declaring and initializing a variable, you can use it to store data, perfo
 int a = 10;
 int b = 20;
 int sum = a + b; // 'sum' now holds the value 30
+
+-----------------------------------------------------------------------------------data type---------------------------------------------------
+
+
