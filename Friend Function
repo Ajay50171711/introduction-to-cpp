@@ -65,7 +65,7 @@ Output
 Private Variable: 10
 Protected Variable: 99
 
-___________________________________
+______________________________________________________________________________________________________________________
 
 2. Member Function of Another Class as Friend Function
 We can also declare a member function of another class as a friend function in C++. The following example demonstrates how to use a member function of another class as a friend function in C++:
@@ -100,7 +100,7 @@ public:
     }
 
     // friend function declaration
-    friend void anotherClass::memberFunction(base&);
+    friend void anotherClass::memberFunction(base& obj);
 };
 
 // friend function definition
@@ -128,7 +128,7 @@ Protected Variable: 99
 Note: The order in which we define the friend function of another class is important and should be taken care of. We always have to define both the classes before the function definition. Thats why we have used out of class member function definition.
 
 
-___________________________________
+__________________________________________________________________________________________________________________
 3) A Function Friendly to Multiple Classes
 
 // C++ Program to demonstrate 
