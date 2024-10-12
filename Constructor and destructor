@@ -1,1 +1,227 @@
 
+
+Constructor:-Constructor in C++ is a special method that is invoked automatically at the time an object of a class is created. It is used to initialize the data members of new objects generally. The constructor in C++ has the same name as the class or structure. It constructs the values i.e. provides data for the object which is why it is known as a constructor.
+
+example:- constructor insidethe class
+#include <iostream>
+using namespace std;
+
+// Class definition
+class Demo {
+public:
+    // Constructor
+    Demo() {
+        cout << "Constructor is called automatically when an object is created!" << endl;
+    }
+};
+
+int main() {
+    // Creating an object of class Demo
+    Demo obj;  // Constructor will be called here automatically
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------
+
+
+example:- constructor outsidethe class
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    // Declaration of constructor
+    Demo();
+};
+
+// Definition of constructor outside the class
+Demo::Demo() {
+    cout << "Constructor defined outside the class!" << endl;
+}
+
+int main() {
+    // Creating an object of class Demo
+    Demo obj;  // Constructor will be called here
+
+    return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+type of the constructor
+1)Defaault
+2)Parameterized
+3)Copy
+4)Move
+
+1. Default Constructor
+----------------------
+A constructor that takes no parameters or where all the parameters have default values.
+It is automatically called when an object is created without any arguments.
+
+above two example are the default constructor
+
+2. Parameterized Constructor
+A constructor that takes parameters to initialize an object with specific values when it's created.
+Example:
+
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    // Parameterized constructor
+    Demo(int x) {
+        cout << "Parameterized Constructor called! Value: " << x << endl;
+    }
+};
+
+int main() {
+    // Creating an object of class Demo and passing a value to the constructor
+    Demo obj(10);  // Constructor will be called with value 10
+
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------
+
+3. Copy Constructor
+A constructor that initializes an object using another object of the same class.
+It is invoked when a new object is created from an existing object.
+
+Syntax of Copy Constructor
+A copy constructor looks like this:
+
+ClassName(const ClassName &old_obj);
+
+ClassName: The name of the class.
+
+const ClassName &old_obj: A reference to the object to be copied, passed as a constant to prevent modification. A reference is used to avoid copying the object itself, which would lead to infinite recursion.
+
+example:
+
+#include <iostream>
+using namespace std;
+
+class Demo {
+private:
+    int value;
+
+public:
+    // Parameterized constructor
+    Demo(int x) {
+        value = x;
+        cout << "Parameterized Constructor called! Value: " << value << endl;
+    }
+
+    // Copy constructor
+    Demo(const Demo &obj) {
+        value = obj.value;  // Copying the value from another object
+        cout << "Copy Constructor called! Copied Value: " << value << endl;
+    }
+
+    // Method to display the value
+    void display() {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    // Create an object using the parameterized constructor
+    Demo obj1(10);
+
+    // Create another object using the copy constructor
+    Demo obj2 = obj1;  // Copy constructor is called here
+
+    // Display values of both objects
+    cout << "obj1 ";
+    obj1.display();
+    
+    cout << "obj2 ";
+    obj2.display();
+
+    return 0;
+}
+
+What is a Destructor in C++?
+A destructor is a special member function of a class that is executed automatically when an object goes out of scope or is explicitly deleted. It is used to perform clean-up tasks like releasing memory, closing files, or freeing other resources that were allocated or acquired during the object's lifetime.
+
+Characteristics of a Destructor:
+Same Name as Class: The destructor has the same name as the class, but it is prefixed with a tilde (~).
+No Parameters: A destructor cannot take any arguments or have a return type.
+One Destructor per Class: A class can only have one destructor, and it cannot be overloaded.
+Called Automatically: The destructor is automatically invoked when the object goes out of scope or is explicitly destroyed using delete.
+
+
+Syntax of a Destructor:
+
+class ClassName {
+public:
+    ~ClassName() {
+        // Destructor code
+    }
+};
+
+
+
+When is a Destructor Called?
+When an object goes out of scope: For example, when an object inside a function's block ({}) reaches the end of the block.
+
+When the object is explicitly deleted: In the case of dynamic memory allocation (new), the destructor is called when you use delete to destroy the object.
+
+Basic Example of a Destructor:
+
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    // Constructor
+    Demo() {
+        cout << "Constructor called!" << endl;
+    }
+
+    // Destructor
+    ~Demo() {
+        cout << "Destructor called!" << endl;
+    }
+};
+
+int main() {
+    Demo obj;  // Constructor is called here
+
+    cout << "Inside main function" << endl;
+
+    return 0;  // Destructor is called here automatically when the object goes out of scope
+}
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
