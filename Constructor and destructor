@@ -169,6 +169,23 @@ When an object goes out of scope: For example, when an object inside a function'
 
 When the object is explicitly deleted: In the case of dynamic memory allocation (new), the destructor is called when you use delete to destroy the object.
 
+Destructo has the same name as the class but is preceded by a tilde (~). The destructor does not take any parameters and does not return a value.
+
+Syntax of a Destructor
+--------------------------
+class ClassName {
+public:
+    // Constructor
+    ClassName() {
+        // Initialization code
+    }
+    
+    // Destructor
+    ~ClassName() {
+        // Cleanup code
+    }
+};
+----------------------------------------------------------------------------------------------------------------------
 Basic Example of a Destructor:
 
 #include <iostream>
