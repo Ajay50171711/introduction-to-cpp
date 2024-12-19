@@ -1,0 +1,154 @@
+this Pointer
+The this pointer refers to the current object of a class.
+It’s implicitly passed to all non-static member functions of a class.
+It helps when you need to differentiate between member variables and parameters with the same name.
+
+#include <iostream>
+using namespace std;
+
+class Example {
+private:
+    int value;
+
+public:
+    // Constructor
+    Example(int value) {
+        // 'this->value' refers to the class member, 'value' refers to the parameter
+        this->value = value;
+    }
+
+    void display() {
+        cout << "Value: " << this->value << endl;
+    }
+};
+
+int main() {
+    Example obj(42);
+    obj.display();  // Output: Value: 42
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    void setDimensions(int length, int width) {
+        // Use 'this' pointer to distinguish between the member variables and parameters
+        this->length = length;
+        this->width = width;
+    }
+
+    void displayArea() {
+        cout << "Area: " << (this->length * this->width) << endl;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.setDimensions(5, 3);  // Set dimensions using parameters
+    rect.displayArea();        // Output: Area: 15
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------------
+
+
+static Keyword
+The static keyword makes a member of a class shared across all objects of the class.
+It means the variable or function belongs to the class, not a specific object.
+You can access static members without creating an object of the class
+
+
+
+#include <iostream>
+using namespace std;
+
+class Counter {
+private:
+    static int count;  // Declare a static variable
+
+public:
+    Counter() {
+        count++;  // Increment the static variable
+    }
+
+    static void displayCount() {  // Static function to display the count
+        cout << "Count: " << count << endl;
+    }
+};
+
+// Define the static variable outside the class
+int Counter::count = 0;
+
+int main() {
+    Counter c1, c2;      // Create two objects
+    Counter::displayCount();  
+
+    Counter c3;
+    Counter::displayCount();
+
+    return 0;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------
+static variable Example
+--------------------
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    static int totalStudents;  // Shared among all objects
+
+public:
+    Student() {
+        totalStudents++;  // Increment when a new object is created
+    }
+
+    static void displayTotal() {
+        // Static function can access static variables
+        cout << "Total Students: " << totalStudents << endl;
+    }
+};
+
+// Initialize static variable
+int Student::totalStudents = 0;
+
+int main() {
+    Student s1, s2;
+    Student::displayTotal();  // Output: Total Students: 2
+
+    Student s3;
+    Student::displayTotal();  // Output: Total Students: 3
+
+    return 0;
+}
+
+
+-----------------------------------------------------------------------------------------------------
+static Function Example
+----------------------
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    static int square(int n) {
+        return n * n;  // Static function to calculate square
+    }
+};
+
+int main() {
+    // Call static function without creating an object
+    cout << "Square of 4: " << Math::square(4) << endl;  // Output: Square of 4: 16
+    return 0;
+}
+
