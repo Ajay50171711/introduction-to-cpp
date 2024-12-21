@@ -1,0 +1,213 @@
+1. Single Inheritance:
+In Single Inheritance, a class (child class) inherits the properties and behaviors (methods) from only one base class.
+
+Example of Single Inheritance:
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Derived class inheriting from Animal
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "The dog barks!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.eat();  // Inherited from Animal
+    myDog.bark(); // Defined in Dog
+    return 0;
+}
+-----------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Vehicle {
+public:
+    void honk() {
+        cout << "The vehicle honks!" << endl;
+    }
+};
+
+// Derived class inheriting from Vehicle
+class Car : public Vehicle {
+public:
+    void drive() {
+        cout << "The car is driving!" << endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.honk();  // Inherited from Vehicle
+    myCar.drive(); // Defined in Car
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Example of Multilevel Inheritance:
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Child class inheriting from Animal
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "The dog barks!" << endl;
+    }
+};
+
+// Grandchild class inheriting from Dog
+class Puppy : public Dog {
+public:
+    void sleep() {
+        cout << "The puppy sleeps!" << endl;
+    }
+};
+
+int main() {
+    Puppy myPuppy;
+    myPuppy.eat();   // Inherited from Animal
+    myPuppy.bark();  // Inherited from Dog
+    myPuppy.sleep(); // Defined in Puppy
+    return 0;
+}
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    void display() {
+        cout << "This is a shape." << endl;
+    }
+};
+
+// Derived class inheriting from Shape
+class Rectangle : public Shape {
+public:
+    void area() {
+        cout << "Calculating area of rectangle." << endl;
+    }
+};
+
+// Further derived class inheriting from Rectangle
+class Square : public Rectangle {
+public:
+    void side() {
+        cout << "This is a square with equal sides." << endl;
+    }
+};
+
+int main() {
+    Square mySquare;
+    mySquare.display();  // Inherited from Shape
+    mySquare.area();     // Inherited from Rectangle
+    mySquare.side();     // Defined in Square
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example of Multiple Inheritance:
+
+#include <iostream>
+using namespace std;
+
+// First base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Second base class
+class Pet {
+public:
+    void play() {
+        cout << "This pet likes to play!" << endl;
+    }
+};
+
+// Derived class inheriting from both Animal and Pet
+class Dog : public Animal, public Pet {
+public:
+    void bark() {
+        cout << "The dog barks!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.eat();  // Inherited from Animal
+    myDog.play(); // Inherited from Pet
+    myDog.bark(); // Defined in Dog
+    return 0;
+}
+----------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+// First base class
+class Printer {
+public:
+    void print() {
+        cout << "Printing document..." << endl;
+    }
+};
+
+// Second base class
+class Scanner {
+public:
+    void scan() {
+        cout << "Scanning document..." << endl;
+    }
+};
+
+// Derived class inheriting from both Printer and Scanner
+class AllInOne : public Printer, public Scanner {
+public:
+    void fax() {
+        cout << "Sending fax..." << endl;
+    }
+};
+
+int main() {
+    AllInOne myDevice;
+    myDevice.print();  // Inherited from Printer
+    myDevice.scan();   // Inherited from Scanner
+    myDevice.fax();    // Defined in AllInOne
+    return 0;
+}
+
+
+Summary:
+Single Inheritance: A derived class inherits from just one base class.
+Multilevel Inheritance: A class (grandchild) inherits from a derived class, which in turn inherits from a base class.
+Multiple Inheritance: A class inherits from more than one base class.
