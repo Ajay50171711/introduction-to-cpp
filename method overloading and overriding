@@ -1,1 +1,142 @@
+1. Method Overloading
+Definition:
+Method overloading allows multiple functions with the same name to exist in a class, differentiated by:
+
+The number of parameters.
+The types of parameters.
+The order of parameters.
+
+Key Points:
+Happens within the same class.
+Decided at compile-time (Compile-Time Polymorphism).
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    // Method with one parameter
+    int add(int a) {
+        return a + 10; // Adds 10 to the number
+    }
+
+    // Overloaded method with two parameters
+    int add(int a, int b) {
+        return a + b; // Adds two numbers
+    }
+
+    // Overloaded method with three parameters
+    double add(double a, double b, double c) {
+        return a + b + c; // Adds three numbers
+    }
+};
+
+int main() {
+    Calculator calc;
+
+    cout << "add(5): " << calc.add(5) << endl;                   // Calls add(int)
+    cout << "add(5, 10): " << calc.add(5, 10) << endl;           // Calls add(int, int)
+    cout << "add(1.5, 2.5, 3.5): " << calc.add(1.5, 2.5, 3.5) << endl; // Calls add(double, double, double)
+
+    return 0;
+}
+Output:
+add(5): 15
+add(5, 10): 15
+add(1.5, 2.5, 3.5): 7.5
+
+-----------------------------------------------------------
+2. Method Overriding
+Definition:
+Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class.
+
+Key Points:
+Requires inheritance.
+The base class method must be marked with the virtual keyword for overriding.
+Decided at runtime (Runtime Polymorphism).
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void display() { // Virtual function
+        cout << "Display from Parent class." << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void display() override { // Overriding the Parent's display method
+        cout << "Display from Child class." << endl;
+    }
+};
+
+int main() {
+    Parent* parentPtr;
+    Child childObj;
+
+    parentPtr = &childObj;
+
+    // Calls the overridden method in Child class
+    parentPtr->display();
+
+    return 0;
+}
+Output:
+Display from Child class.
+
+----------------------------------------
+Differences between Overloading and Overriding
+-----------------------------------------
+
+Feature                   	Overloading	                                                               Overriding
+---------------------------------------------------------------------------------------------------------------------------------------------
+Definition:	    Same method name with different parameters.	                       Redefining a base class method in derived class.
+Inheritance:            	Not required.                                                           	Requires inheritance.
+Binding:	        Compile-time (Static binding).	                                                 Runtime (Dynamic binding).
+Keywords:	       No special keyword required.                                        	Requires virtual and optionally override.
+Usage:	         Used for different functionalities in the same class.              	Used to modify behavior in derived classes.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Overloading and Overriding Together
+A combination of both overloading and overriding can be implemented in inheritance scenarios.
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void show(int x) {
+        cout << "Base class, x: " << x << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    // Overriding
+    void show(int x) override {
+        cout << "Derived class, x: " << x << endl;
+    }
+
+    // Overloading
+    void show(int x, int y) {
+        cout << "Derived class, x + y: " << x + y << endl;
+    }
+};
+
+int main() {
+    Derived d;
+    Base* basePtr = &d;
+
+    basePtr->show(10);     // Calls overridden method in Derived
+    d.show(10, 20);        // Calls overloaded method in Derived
+
+    return 0;
+}
+Output:
+Derived class, x: 10
+Derived class, x + y: 30
 
