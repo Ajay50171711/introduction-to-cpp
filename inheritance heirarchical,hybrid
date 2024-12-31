@@ -1,0 +1,227 @@
+            
+1. Hierarchical Inheritance
+Hierarchical inheritance involves multiple child classes inheriting from a single parent class.
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void show() {
+        cout << "This is the parent class." << endl;
+    }
+};
+
+class Child1 : public Parent {
+public:
+    void display() {
+        cout << "This is child 1 class." << endl;
+    }
+};
+
+class Child2 : public Parent {
+public:
+    void display() {
+        cout << "This is child 2 class." << endl;
+    }
+};
+
+int main() {
+    Child1 c1;
+    c1.show();    // Inherited from Parent
+    c1.display(); // Defined in Child1
+
+    Child2 c2;
+    c2.show();    // Inherited from Parent
+    c2.display(); // Defined in Child2
+
+    return 0;
+}
+Output:
+This is the parent class.
+This is child 1 class.
+This is the parent class.
+This is child 2 class.
+
+
+----------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void sound() {
+        cout << "Animals make sounds." << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Dog barks." << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void meow() {
+        cout << "Cat meows." << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.sound(); // Inherited from Animal
+    dog.bark();  // Defined in Dog
+
+    Cat cat;
+    cat.sound(); // Inherited from Animal
+    cat.meow();  // Defined in Cat
+
+    return 0;
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Hybrid Inheritance
+Hybrid inheritance combines two or more types of inheritance. Typically, it involves a combination of hierarchical and multiple inheritance. It requires careful use of virtual inheritance to avoid ambiguity.
+
+Example:
+#include <iostream>
+using namespace std;
+
+class Grandparent {
+public:
+    void show() {
+        cout << "This is the grandparent class." << endl;
+    }
+};
+
+class Parent1 : virtual public Grandparent {
+public:
+    void displayParent1() {
+        cout << "This is parent 1 class." << endl;
+    }
+};
+
+class Parent2 : virtual public Grandparent {
+public:
+    void displayParent2() {
+        cout << "This is parent 2 class." << endl;
+    }
+};
+
+class Child : public Parent1, public Parent2 {
+public:
+    void showChild() {
+        cout << "This is the child class." << endl;
+    }
+};
+
+int main() {
+    Child c;
+    c.show();         // Avoids ambiguity using virtual inheritance
+    c.displayParent1();
+    c.displayParent2();
+    c.showChild();
+
+    return 0;
+}
+Output:
+This is the grandparent class.
+This is parent 1 class.
+This is parent 2 class.
+This is the child class
+
+
+------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    void personalDetails() {
+        cout << "This is a person." << endl;
+    }
+};
+
+class Teacher : virtual public Person {
+public:
+    void teach() {
+        cout << "This person can teach." << endl;
+    }
+};
+
+class Student : virtual public Person {
+public:
+    void study() {
+        cout << "This person can study." << endl;
+    }
+};
+
+class TeachingAssistant : public Teacher, public Student {
+public:
+    void assist() {
+        cout << "This person can assist in teaching." << endl;
+    }
+};
+
+int main() {
+    TeachingAssistant ta;
+    ta.personalDetails();
+    ta.teach();
+    ta.study();
+    ta.assist();
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void baseFunction() {
+        cout << "This is the base class function." << endl;
+    }
+};
+
+// Hierarchical inheritance
+class Intermediate1 : public Base {
+public:
+    void intermediate1Function() {
+        cout << "This is Intermediate1 class function." << endl;
+    }
+};
+
+class Intermediate2 : public Base {
+public:
+    void intermediate2Function() {
+        cout << "This is Intermediate2 class function." << endl;
+    }
+};
+
+// Hybrid inheritance: Final class inherits from Intermediate2
+class Final : public Intermediate2 {
+public:
+    void finalFunction() {
+        cout << "This is the final class function." << endl;
+    }
+};
+
+int main() {
+    Final obj;
+
+    // Accessing methods from all levels
+    obj.baseFunction();              // Inherited from Base through Intermediate2
+    obj.intermediate2Function();     // Defined in Intermediate2
+    obj.finalFunction();             // Defined in Final
+
+    return 0;
+}
+
