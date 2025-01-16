@@ -1,0 +1,60 @@
+1. Early Binding (Static Binding)
+What is it?
+
+The function to be called is decided at compile-time (when the code is compiled).
+Happens for normal (non-virtual) functions.
+When is it used?
+
+When the compiler knows exactly which function to call based on the type of the object.
+Example:
+  #include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void display() { // Non-virtual function
+        cout << "Base class display function" << endl;
+    }
+};
+
+int main() {
+    Base obj;         // Create a Base class object
+    obj.display();    // Function decided at compile-time (early binding)
+    return 0;
+}
+
+
+  2. Late Binding (Dynamic Binding)
+What is it?
+
+The function to be called is decided at runtime (when the program is running).
+Happens for virtual functions.
+When is it used?
+
+When using inheritance and polymorphism, and the type of the object is determined at runtime.
+Example:
+  #include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void display() { // Virtual function
+        cout << "Base class display function" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() override { // Override the base class function
+        cout << "Derived class display function" << endl;
+    }
+};
+
+int main() {
+    Base *ptr;         // Pointer to Base class
+    Derived obj;       // Create a Derived class object
+    ptr = &obj;        // Base class pointer points to Derived object
+
+    ptr->display();    // Function decided at runtime (late binding)
+    return 0;
+}
