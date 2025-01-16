@@ -100,6 +100,7 @@ const ClassName &old_obj: A reference to the object to be copied, passed as a co
 
 example:
 
+
 #include <iostream>
 using namespace std;
 
@@ -111,13 +112,13 @@ public:
     // Parameterized constructor
     Demo(int x) {
         value = x;
-        cout << "Parameterized Constructor called! Value: " << value << endl;
+        cout << "Parameterized Constructor called!" << endl;
     }
 
     // Copy constructor
     Demo(const Demo &obj) {
         value = obj.value;  // Copying the value from another object
-        cout << "Copy Constructor called! Copied Value: " << value << endl;
+        cout << "Copy Constructor called! " << endl;
     }
 
     // Method to display the value
@@ -142,7 +143,6 @@ int main() {
 
     return 0;
 }
-
 What is a Destructor in C++?
 A destructor is a special member function of a class that is executed automatically when an object goes out of scope or is explicitly deleted. It is used to perform clean-up tasks like releasing memory, closing files, or freeing other resources that were allocated or acquired during the object's lifetime.
 
