@@ -1,0 +1,87 @@
+In C++, templates allow you to create functions and classes that can work with any data type. Templates provide a way to write generic code that can be reused for different data types without having to rewrite it.
+
+There are two main types of templates in C++:
+
+Function Templates
+Class Templates
+
+
+Function Template
+A function template allows you to create a single function that can work with different data types. You don’t need to define the function for every possible data type.
+
+Example: A Template to Find the Maximum of Two Numbers
+#include <iostream>
+using namespace std;
+
+// Function template to find the maximum of two values
+template <typename T>
+T maximum(T a, T b) {
+    return (a > b) ? a : b;  // Return the greater of a and b
+}
+
+int main() {
+    cout << "Maximum of 3 and 5 (int): " << maximum(3, 5) << endl;          // Calls maximum for int
+    cout << "Maximum of 3.5 and 2.1 (double): " << maximum(3.5, 2.1) << endl; // Calls maximum for double
+    cout << "Maximum of 'A' and 'B' (char): " << maximum('A', 'B') << endl;   // Calls maximum for char
+    
+    return 0;
+}
+
+Explanation:
+template <typename T>: This line defines a template that can work with any data type. T is a placeholder for the data type, and it will be replaced with the actual data type when you call the function.
+maximum(T a, T b): This is the function definition. The function takes two arguments a and b of type T (which will be determined when the function is called).
+Inside the main() function, we call maximum() with different data types (int, double, char). The template automatically works with the correct data type based on the arguments.
+
+Output:
+Maximum of 3 and 5 (int): 5
+Maximum of 3.5 and 2.1 (double): 3.5
+Maximum of 'A' and 'B' (char): B
+As you can see, the same function maximum() works for different types (int, double, char) without needing to write separate functions for each type.
+
+Class Template Example
+Now, let's look at a class template that allows you to create a class that can hold any data type.
+
+Example: A Template for a Simple Box Class
+#include <iostream>
+using namespace std;
+
+// Class template to create a Box
+template <typename T>
+class Box {
+private:
+    T value;  // Value of type T
+
+public:
+    // Constructor to initialize the box with a value
+    Box(T val) {
+        value = val;
+    }
+
+    // Member function to get the value
+    T getValue() {
+        return value;
+    }
+};
+
+int main() {
+    Box<int> intBox(10);           // Box that holds an integer
+    Box<double> doubleBox(5.5);    // Box that holds a double
+    Box<string> stringBox("Hello"); // Box that holds a string
+
+    cout << "Integer value in Box: " << intBox.getValue() << endl;
+    cout << "Double value in Box: " << doubleBox.getValue() << endl;
+    cout << "String value in Box: " << stringBox.getValue() << endl;
+
+    return 0;
+}
+
+Explanation:
+template <typename T>: This is the class template declaration. T represents a placeholder for any data type.
+Box(T val) is the constructor of the class that accepts a value of type T and assigns it to the member variable value.
+In main(), we create three different Box objects: one for an int, one for a double, and one for a string.
+The getValue() function returns the value stored inside the box.
+
+Output:
+Integer value in Box: 10
+Double value in Box: 5.5
+String value in Box: Hello
