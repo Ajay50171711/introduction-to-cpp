@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        int divisor;
+        cout << "Enter a number to divide 10: ";
+        cin >> divisor;
+
+        if (divisor == 0) {
+            throw "Division by zero is not allowed!";
+        }
+
+        cout << "Result: " << 10 / divisor << endl;
+    }
+    catch (const char* errorMessage) {
+        // Handle the error here
+        cout << "Error: " << errorMessage << endl;
+    }
+
+    cout << "Program completed..." << endl;
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        int number;
+        cout << "Enter your age: ";
+        cin >> number;
+
+        if (number < 0) {
+            throw "age can't negative";
+        }
+        else
+
+        cout << "Your age is : " << number << endl;
+    }
+    catch (const char* errorMessage) {
+        cout << "Error: " << errorMessage << endl;
+    }
+
+    cout << "Program ended gracefully." << endl;
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
