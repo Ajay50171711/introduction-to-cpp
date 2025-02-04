@@ -1,0 +1,162 @@
+C++ provides the fstream library to handle file operations. This library includes several classes to perform file input/output operations. The main classes are:
+
+fstream: This class can handle both input and output operations (i.e., reading and writing) on files.
+ifstream: This class is used for reading from files.
+ofstream: This class is used for writing to files.
+These classes are defined in the fstream header file. Here's how to use them:
+
+Opening a File
+You can open a file using the open() method or by using the constructor of the file stream object. When you open a file, you can specify the mode in which the file should be opened, such as:
+
+ios::in: Open for reading.
+ios::out: Open for writing.
+ios::app: Open for appending (write at the end of the file).
+ios::binary: Open in binary mode.
+ios::trunc: Truncate the file to zero length if it already exists.
+The mode is optional. If not specified, a default mode is assumed.
+
+Syntax for Opening a File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Create an object of ofstream for writing
+    ofstream outFile("example.txt", ios::out);
+
+    // Create an object of ifstream for reading
+    ifstream inFile("example.txt", ios::in);
+
+    return 0;
+}
+
+Reading from a File
+To read from a file, you can use the ifstream class. The >> operator can be used for reading word by word, while the getline() function is used to read an entire line.
+
+Example of Reading Line-by-Line:
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream inFile("example.txt");
+
+    if (!inFile) {
+        cerr << "File could not be opened!" << endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+
+    inFile.close();  // Close the file
+    return 0;
+}
+
+Example of Reading Word-by-Word:
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("example.txt");
+
+    if (!inFile) {
+        cerr << "File could not be opened!" << endl;
+        return 1;
+    }
+
+    string word;
+    while (inFile >> word) {
+        cout << word << " ";
+    }
+
+    inFile.close();  // Close the file
+    return 0;
+}
+Writing to a File
+To write to a file, you can use the ofstream class. The << operator is used to write text to the file.
+
+Example of Writing to a File:
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");
+
+    if (!outFile) {
+        cerr << "File could not be created!" << endl;
+        return 1;
+    }
+
+    outFile << "Hello, this is a test.\n";
+    outFile << "We are writing to a file in C++.\n";
+
+    outFile.close();  // Close the file
+    return 0;
+}
+
+
+Appending Data to a File
+If you want to add data to the end of an existing file, you can use the ios::app mode.
+
+Example of Appending Data:
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt", ios::app);
+
+    if (!outFile) {
+        cerr << "File could not be opened!" << endl;
+        return 1;
+    }
+
+    outFile << "This text will be appended.\n";
+
+    outFile.close();  // Close the file
+    return 0;
+}
+
+Checking if the File is Open
+Before reading from or writing to a file, you should always check if the file was opened successfully. You can do this by using the is_open() function.
+
+
+if (!inFile.is_open()) {
+    cout << "Unable to open the file!" << endl;
+}
+
+Closing a File
+After performing the required operations on a file, you should always close it using the close() method. Closing the file ensures that all data is written to disk, and resources are freed.
+
+inFile.close();  // Close the file after reading
+outFile.close(); // Close the file after writing
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Open file for reading and writing in binary mode
+    fstream file("example.dat", ios::in | ios::out | ios::binary);
+
+    if (!file.is_open()) {
+        cerr << "Failed to open file." << endl;
+        return 1;
+    }
+
+    // Perform file operations...
+    
+    file.close();
+    return 0;
+}
