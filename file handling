@@ -160,3 +160,86 @@ int main() {
     file.close();
     return 0;
 }
+===================================================================================================
+to create a file
+===================
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+int main(){
+
+	
+	ofstream outfile("myfile.txt");
+	
+	if(outfile.is_open()){
+		outfile<<"this is written by c++\n";
+		outfile<<"this is my second line";
+		
+		outfile.close();
+		cout<<"file created succesfully and we write on it";
+	}
+	else{
+		cout<<"unable to open file";
+	}
+	
+	
+	return 0;
+}
+==========================================================
+to read the content of the file
+==============================================
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main(){
+	
+	ifstream infile("Example.txt");
+    if (infile.is_open()) {
+        string line;
+        cout << "Reading file contents:\n";
+        while (getline(infile, line)) {
+            cout << line << endl;
+        }
+        infile.close(); // close after reading
+    } else {
+        cout << "Unable to open file for reading.\n";
+    }
+	
+	return 0;
+}
+=============================================================
+append in file
+==================================
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+
+int main() {
+    // 1. Append to the file
+    ofstream appendfile("Example.txt", ios::app); // open in append mode
+    if (appendfile.is_open()) {
+        appendfile << "This line is appended to the file.\n";
+        appendfile.close();
+        cout << "Data appended successfully.\n";
+    } else {
+        cout << "Unable to open file for appending.\n";
+    }
+
+    // 2. Read the file after appending
+    ifstream infile("Example.txt"); // open in read mode
+    if (infile.is_open()) {
+        string line;
+        cout << "Reading file after appending:\n";
+        while (getline(infile, line)) {
+            cout << line << endl;
+        }
+        infile.close();
+    } else {
+        cout << "Unable to open file for reading after appending.\n";
+    }
+
+    return 0;
+}
